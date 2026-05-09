@@ -1,0 +1,89 @@
+<!-- file-upload.component.html -->
+
+<div class="page-container">
+
+  <div class="upload-card">
+
+    <div class="top-icon">
+      ☁
+    </div>
+
+    <h1>Event Driven Engine</h1>
+
+    <p class="subtitle">
+      Upload files to source folder for processing
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Upload Area -->
+
+    <div class="drop-zone">
+
+      <div class="upload-icon">
+        ⬆
+      </div>
+
+      <h3>Drag & drop your file here</h3>
+
+      <p class="or-text">or</p>
+
+      <label for="fileInput" class="choose-btn">
+        Choose File
+      </label>
+
+      <input
+        id="fileInput"
+        type="file"
+        (change)="onFileSelected($event)"
+      >
+
+      <p class="support-text">
+        Supports: CSV, JSON, XML, TXT, ZIP
+      </p>
+
+    </div>
+
+    <!-- Selected File -->
+
+    <div class="file-preview" *ngIf="selectedFile">
+
+      <div class="file-left">
+
+        <div class="file-icon">
+          📄
+        </div>
+
+        <div>
+
+          <div class="file-name">
+            {{ selectedFile.name }}
+          </div>
+
+          <div class="file-size">
+            {{ getFileSize(selectedFile.size) }}
+          </div>
+
+        </div>
+
+      </div>
+
+      <button class="remove-btn" (click)="removeFile()">
+        ✖
+      </button>
+
+    </div>
+
+    <!-- Upload Button -->
+
+    <button class="upload-btn" (click)="upload()">
+      ⬆ Upload File
+    </button>
+
+    <div class="footer-text">
+      🔒 Your files are secure and only used for processing.
+    </div>
+
+  </div>
+
+</div>
